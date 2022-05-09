@@ -1,0 +1,44 @@
+.main {
+    width: 100%;
+    height: 100%;
+    background: greenyellow;
+}
+
+.block1 {
+    background: lightblue;
+    height: 236px;
+    width: 236px;
+    padding: 30px 30px 30px 30px;
+    border: solid 4px black;
+}
+
+.block2 {
+    background: lightcoral;
+    height: 196px;
+    width: 196px;
+    padding: 50px 50px 50px 50px;
+    border: solid 4px black;
+}
+
+.block3 {
+    background: lightgray;
+    height: 100px;
+    width: 45%;
+}
+
+.block4 {
+    background: lightseagreen;
+    height: 250px;
+    width: 200px;
+    border: solid 5px black;
+}
+
+.button {
+    text-align: center;
+	background: yellow;
+	border-radius: 28px;
+    width: 120px;
+	border: 1px solid #18ab29;
+	padding: 16px 31px;
+    margin: 20px;
+}
