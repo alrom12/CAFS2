@@ -1,6 +1,7 @@
 
 .menu li {
-    color: blue;
+    color: lightgray;
+    background: slategray;
     width: 200px;
     border: 1px solid blue;
     margin: 10px;
@@ -9,7 +10,8 @@
 }
 
 li:hover{
-    color: red;
+    background: white;
+    color: darkgray;
     text-decoration: underline;
     cursor: pointer;
 }
