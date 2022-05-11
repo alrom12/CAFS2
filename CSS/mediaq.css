@@ -1,18 +1,47 @@
-body {
-    color: blue;
-  }
-  
-  
-  @media only screen and (max-width: 800px) {
-    body {
-      color: green;
-    }
-  
-  @media only screen and (max-width: 480px) {
-    body {
-      color: red;
+div.child {
+    display: block;
+    width: 33.33%;
+    height: 450px;
+    background-color: green;
+}
+
+@media screen and (min-width: 786px) and (max-width: 1200px) {
+    div.child {
+        display: block;
+        width: 50%;
+        height: 350px;
+        background-color: yellow;
     }
   }
 
-
+  @media screen and (max-width: 785px) {
+    div.child {
+        display: block;
+        width: 100%;
+        height: 250px;
+        background-color: blue;
+    }
   }
+  
+
+
+
+
+  /* 
+  Turi bloką (parent div), kurio viduje yra kitas blokas (child div). Antras blokas turi tokius parametrus:
+
+Desktop ekrane (nuo 1200px):		
+Plotis: 33.33% tėvinio elemento;
+Aukštis 450px;
+Spalva: žalia.
+	
+Tablet ekrane (nuo 786px):	
+Plotis: 50% tėvinio elemento;
+Aukštis 350px;
+Spalva: geltona.
+	
+Mobile ekrane (iki 785px) – default stilius (Mobile first development principas):
+	
+Plotis: 100% tėvinio elemento;		
+Aukštis 250px;
+Spalva: mėlyna.*/
