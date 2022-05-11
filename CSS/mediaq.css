@@ -1,0 +1,18 @@
+body {
+    color: blue;
+  }
+  
+  
+  @media only screen and (max-width: 800px) {
+    body {
+      color: green;
+    }
+  
+  @media only screen and (max-width: 480px) {
+    body {
+      color: red;
+    }
+  }
+
+
+  }
