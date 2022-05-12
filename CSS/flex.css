@@ -1,0 +1,13 @@
+.container {
+    border: 1px solid red;
+    padding: 5px;
+    display: flex;
+    flex-direction: column-reverse;
+}
+
+.child {
+    padding: 15px;
+    border: 1px solid green;
+    height: 100px;
+
+}
