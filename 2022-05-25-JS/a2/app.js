@@ -1,8 +1,6 @@
 let a = [];
-let temp = 0;
 for (let i = 0; i < 5; i++) {
-    temp = getRandomArbitrary(1, 10);
-    a[i] = financial(temp);
+    a[i] = financial(getRandomArbitrary(1, 10));
     console.log(a[i]);
     }
 
