@@ -1,6 +1,6 @@
 let a = [];
 for (let i = 0; i < 5; i++) {
-    a[i] = financial(getRandomArbitrary(1, 10));
+    a[i] = parseFloat(financial(getRandomArbitrary(1, 10)));
     console.log(a[i]);
     }
 
