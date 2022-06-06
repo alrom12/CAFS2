@@ -7,6 +7,8 @@ let user = {
 
 userInfoOutput.innerHTML = `<h2>User Information</h2><p>Vartotojo vardas yra ${user.name}, o pavardė ${user.lastName}.</p>`;
 
+document.getElementById("main2").innerHTML = `<h3>${user.name} Profile<h3>`;
+
 
 
 
