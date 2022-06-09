@@ -56,7 +56,6 @@ function checkForLetters(arr, value) {
 
 function cleanLettersAndSort(arr) {
     const arrInteger = [];
-    console.log(arr);
     arr.forEach(element => {
         if (typeof element === 'number') {
             arrInteger.push(element);
@@ -70,9 +69,11 @@ function checkIfAllSmaller(arr, max) {
     arr.forEach(element => {
         if (element < max) {
             r = false;
+            // return false;
         }
     });
     return r;
+    // return true;
 }
 
 function filteredByLetter(arr, letter) {
