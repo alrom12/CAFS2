@@ -8,5 +8,5 @@ if (btn) {
 
 function getValueFromInput (event) {
     console.log(write.value);
-    read?.value = write.value;
+    read?.value = write?.value;
 }
