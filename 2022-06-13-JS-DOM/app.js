@@ -1,8 +1,9 @@
-window.addEventListener('resize', function(event){
-
+function displayWindowSize() {
+    let h1Element = document.querySelector('h1');
     let widthHeight = [window.innerWidth, window.innerHeight];
-    if (document.querySelector('h1')) {
-        document.querySelector('h1').textContent = `${widthHeight[0]} x ${widthHeight[1]}`;
+    if (h1Element) {
+        h1Element.textContent = `${widthHeight[0]} x ${widthHeight[1]}`;
     }
-
-});
+}
+window.addEventListener('resize', displayWindowSize);
+displayWindowSize();
