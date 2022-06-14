@@ -1,3 +1,5 @@
+const btn = document?.querySelectorAll('th');
+
 function addition(num1, num2) {
     return +num1 + +num2;
 }
@@ -37,28 +39,17 @@ function calculateValue(num1, num2, action) {
     return actions[indexOfAction](num1, num2);
 }
 
-const btn = document.querySelectorAll('th');
-let screen1 = document.querySelector('#screen1').textContent;
-let screen2 = document.querySelector('#screen2').textContent;
-let operator = document.querySelector('#operator').textContent;
-let result = document.querySelector('#result').textContent;
-let msg = document.querySelector('#msg').textContent;
-
-for (let i = 0; i < btn.length; i++) {
-    btn[i].addEventListener('click', takeClickValue);
-}
-
 function updateMsg(msg) {
     document.querySelector('#msg').textContent = msg;
 }
 
 function takeClickValue (event) {
     let clickedButton = event.target.innerText;
-    let screen1 = document.querySelector('#screen1').textContent;
-    let screen2 = document.querySelector('#screen2').textContent;
-    let operator = document.querySelector('#operator').textContent;
-    let result = document.querySelector('#result').textContent;
-    let msg = document.querySelector('#msg').textContent;
+    let screen1 = document?.querySelector('#screen1').textContent;
+    let screen2 = document?.querySelector('#screen2').textContent;
+    let operator = document?.querySelector('#operator').textContent;
+    let result = document?.querySelector('#result').textContent;
+    let msg = document?.querySelector('#msg').textContent;
 
     if (clickedButton === 'C') {
         document.querySelector('#screen1').textContent = '';
@@ -136,4 +127,8 @@ function takeClickValue (event) {
             document.querySelector('#operator').textContent = clickedButton;
         }
     }
+}
+
+for (let i = 0; i < btn.length; i++) {
+    btn[i]?.addEventListener('click', takeClickValue);
 }
