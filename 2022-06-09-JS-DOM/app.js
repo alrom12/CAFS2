@@ -1,5 +1,5 @@
 const btn = document.querySelector('button');
-btn?.addEventListener('click', getValueFromInput)
+btn?.addEventListener('click', getValueFromInput);
 
 // if (btn) {
 //     btn.addEventListener('click', getValueFromInput)

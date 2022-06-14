@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Calculator</h1>
+    <div class="container">
+        <table>
+            <tr>
+                <th>1</th>
+                <th>2</th>
+                <th>3</th>
+                <th>+</th>
+            </tr>
+            <tr>
+                <th>4</th>
+                <th>5</th>
+                <th>6</th>
+                <th>-</th>
+            </tr>
+            <tr>
+                <th>7</th>
+                <th>8</th>
+                <th>9</th>
+                <th>*</th>
+            </tr>
+            <tr>
+                <th>C</th>
+                <th>0</th>
+                <th>=</th>
+                <th>/</th>
+            </tr>
+            <!-- <tr>
+                <th>.</th>
+                <th>C</th>
+                <th>&#8592;</th>
+            </tr> -->
+                
+                
+                
+                
+        </table>
+    </div>
+    <div class="container">
+        <p>Screen:</p>
+        <div class="row">
+            <div class="col-2 border border-primary" id="screen1"></div>
+            <div class="col-1 border border-primary" id="operator"></div>
+            <div class="col-2 border border-primary" id="screen2"></div>
+            <div class="col-1 border border-primary" id="equal">=</div>
+            <div class="col-2 border border-primary" id="result"></div>
+        </div>
+        <div class="row"> Msg:
+            <div class="col-6" id="msg"></div>
+        </div>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>
