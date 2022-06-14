@@ -69,8 +69,13 @@ function takeClickValue (event) {
         return;
     }
 
-    if (result > 1 || result == '0') {
-        updateMsg('Press C to clear');
+    if (result.length > 1 || result == '0') {
+        // updateMsg('Press C to clear');
+        document.querySelector('#screen1').textContent = result;
+        document.querySelector('#screen2').textContent = '';
+        document.querySelector('#operator').textContent = '';
+        document.querySelector('#result').textContent = '';
+        updateMsg('Continue to calculate');
         return;
     }
 
