@@ -48,71 +48,45 @@ for (let i = 0; i < btn.length; i++) {
     btn[i].addEventListener('click', takeClickValue);
 }
 
+function updateMsg(msg) {
+    document.querySelector('#msg').textContent = msg;
+}
+
 function takeClickValue (event) {
     let clickedButton = event.target.innerText;
+    let screen1 = document.querySelector('#screen1').textContent;
+    let screen2 = document.querySelector('#screen2').textContent;
+    let operator = document.querySelector('#operator').textContent;
+    let result = document.querySelector('#result').textContent;
+    let msg = document.querySelector('#msg').textContent;
 
     if (clickedButton === 'C') {
-        screen1 = '';
-        screen2 = '';
-        operator = '';
-        result = '';
-        msg = '';
-        document.querySelector('#screen1').textContent = screen1;
-        document.querySelector('#screen2').textContent = screen2;
-        document.querySelector('#operator').textContent = operator;
-        document.querySelector('#result').textContent = result;
-        document.querySelector('#msg').textContent = msg;
+        document.querySelector('#screen1').textContent = '';
+        document.querySelector('#screen2').textContent = '';
+        document.querySelector('#operator').textContent = '';
+        document.querySelector('#result').textContent = '';
+        updateMsg('');
+        return;
     }
 
-    if (document.querySelector('#result').textContent.length > 1 || document.querySelector('#result').textContent == '0') {
-        msg = 'Press C to clear';
-        document.querySelector('#msg').textContent = msg;
+    if (result > 1 || result == '0') {
+        updateMsg('Press C to clear');
         return;
     }
 
     if (clickedButton === '=') {
-        if (document.querySelector('#screen1').textContent === '') {
-            msg = 'Please enter a number 1';
-            document.querySelector('#msg').textContent = msg;
+        if (screen1 === '') {
+            updateMsg('Please enter a number 1');
+            return;
         }
-        if (document.querySelector('#operator').textContent === '') {
-            msg = 'Please select an operator';
-            document.querySelector('#msg').textContent = msg;
-        }
-        if (document.querySelector('#screen2').textContent === '') {
-            msg = 'Please enter a number 2';
-            document.querySelector('#msg').textContent = msg;
-        }
-    } 
-
-    if (parseInt(clickedButton) || clickedButton === '0') {
         if (operator === '') {
-            if (screen1.length < 8) {
-                screen1 += clickedButton;
-                document.querySelector('#screen1').textContent = screen1;
-            } else {
-                msg = 'Number is too long';
-                document.querySelector('#msg').textContent = msg;
-            }
-        } else {
-            if (screen2.length < 8) {
-                screen2 += clickedButton;
-                document.querySelector('#screen2').textContent = screen2;
-            } else {
-                msg = 'Number is too long';
-                document.querySelector('#msg').textContent = msg;
-            }
+            updateMsg('Please select an operator');
+            return;
         }
-    }
-
-    if (clickedButton === '+' || clickedButton === '-' || clickedButton === '*' || clickedButton === '/') {
-        if (operator === '' && screen1 !== '') {
-            operator = clickedButton;
-            document.querySelector('#operator').textContent = operator;
+        if (screen2 === '') {
+            updateMsg('Please enter a number 2');
+            return;
         }
-    }
-
-    if (clickedButton === '=') {
         let operatorWord = '';
         if (operator === '+') {
             operatorWord = 'addition';
@@ -123,15 +97,38 @@ function takeClickValue (event) {
         } else if (operator === '/') {
             operatorWord = 'division';
             if (screen2 == '0') {
-                msg = 'Division by zero';
-                document.querySelector('#msg').textContent = msg;
+                updateMsg('Division by zero');
+                return;
             }
         }
         if (document.querySelector('#operator').textContent === '') {
-            msg = 'Operator not selected';
-                document.querySelector('#msg').textContent = msg;
+            updateMsg('Operator not selected');
+            return;
         } else {
             document.querySelector('#result').textContent = calculateValue(screen1, screen2, operatorWord);
+            updateMsg('Result!');
+        }
+    } 
+
+    if (parseInt(clickedButton) || clickedButton === '0') {
+        if (operator === '') {
+            if (screen1.length < 8) {
+                document.querySelector('#screen1').textContent += clickedButton;
+            } else {
+                updateMsg('Number is too long');
+            }
+        } else {
+            if (screen2.length < 8) {
+                document.querySelector('#screen2').textContent += clickedButton;
+            } else {
+                updateMsg('Number is too long');
+            }
+        }
+    }
+
+    if (clickedButton === '+' || clickedButton === '-' || clickedButton === '*' || clickedButton === '/') {
+        if (operator === '' && screen1 !== '') {
+            document.querySelector('#operator').textContent = clickedButton;
         }
     }
 }
