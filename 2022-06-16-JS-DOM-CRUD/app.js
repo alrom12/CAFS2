@@ -5,12 +5,10 @@
 // <p> tag’as su tekstu.
 
 const div = document.querySelector('#main');
-const h2Text = 'Welcome to my page';
-
 window.addEventListener('DOMContentLoaded', (e) => {
     const h2 = document.createElement('h2');
     div.appendChild(h2);
-    h2.textContent = h2Text;
+    h2.textContent = 'Welcome to my page';
 
     const p = document.createElement('p');
     div.appendChild(p);
@@ -25,6 +23,4 @@ window.addEventListener('DOMContentLoaded', (e) => {
     const p2 = document.createElement('p');
     div.appendChild(p2);
     p2.textContent = 'P2 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam, quidem.';
-
-    console.log(div);
 });
