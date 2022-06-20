@@ -23,6 +23,7 @@ window.addEventListener('load', (event) => {
         msg.appendChild(pElement)
         pElement.classList.add('fst-italic');
         pElement.classList.add('mb-2');
-        pElement.innerText = `${msgName.value} says: ${msgComment.value}`;
-    });
+        pElement.innerText = "Your message is recorded";
+        // pElement.innerText = `${msgName.value} says: ${msgComment.value}`;
+    }, {once: true});
 });
