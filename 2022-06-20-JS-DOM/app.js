@@ -24,6 +24,7 @@ window.addEventListener('load', (event) => {
         pElement.classList.add('fst-italic');
         pElement.classList.add('mb-2');
         pElement.innerText = "Your message is recorded";
+        button.disabled = true;
         // pElement.innerText = `${msgName.value} says: ${msgComment.value}`;
     }, {once: true});
 });
