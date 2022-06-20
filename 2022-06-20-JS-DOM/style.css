@@ -3,7 +3,6 @@
     font-size: 300px;
 }
 
-/* #p-name {
-    font-style: italic;
-    font-size: medium;
-} */
+$('.carousel').carousel({
+    pause: "false"
+});
