@@ -12,7 +12,8 @@ window.addEventListener('DOMContentLoaded', (e) => {
 
     const p = document.createElement('p');
     div.appendChild(p);
-    p.textContent = 'P1 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam, quidem.';
+    p.append(document.createTextNode('This P1 is created by JS'));
+    // p.textContent = 'P1 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam, quidem.';
 
     const ul = document.createElement('ul');
     div.appendChild(ul);
