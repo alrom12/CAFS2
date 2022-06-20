@@ -19,12 +19,16 @@ window.addEventListener('load', (event) => {
     let msgComment = document.getElementById('comment');
     button.addEventListener('click', (event) => {
         event.preventDefault();
-        let pElement = document.createElement('p');
-        msg.appendChild(pElement)
-        pElement.classList.add('fst-italic');
-        pElement.classList.add('mb-2');
-        pElement.innerText = "Your message is recorded";
-        button.disabled = true;
-        // pElement.innerText = `${msgName.value} says: ${msgComment.value}`;
-    }, {once: true});
+        if (msgName.value === '' || msgComment.value === '') {
+            alert('Please fill in all fields');
+        } else {
+            let pElement = document.createElement('p');
+            msg.appendChild(pElement)
+            pElement.classList.add('fst-italic');
+            pElement.classList.add('mb-2');
+            pElement.innerText = "Your message is recorded";
+            button.disabled = true;
+            // pElement.innerText = `${msgName.value} says: ${msgComment.value}`;
+        }
+    });
 });
