@@ -2,7 +2,3 @@
     min-height: 300px;
     font-size: 300px;
 }
-
-$('.carousel').carousel({
-    pause: "false"
-});
