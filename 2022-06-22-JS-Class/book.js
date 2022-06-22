@@ -2,7 +2,11 @@ class Book {
     constructor(title, author, year) {
         this.title = title;
         this.author = author;
-        this.year = year;
+        if (Number.isInteger(year)) {
+            this.year = year;
+        } else {
+            throw 'Parameter is not a number!';
+        }
     }
 
     getTitleAndAuthor() {
