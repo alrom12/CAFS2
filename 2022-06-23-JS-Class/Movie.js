@@ -1,25 +1,31 @@
 class Movie {
     constructor(name, year, director, budget, income) {
         this.name = name;
-        if (Number.isInteger(year)) {
-            this.year = year;
-        } else {
-            throw 'Year is not a number!';
-        }
+        this.year = year;
         this.director = director;
-        if (Number.isInteger(budget) || Number.isInteger(budget)) {
+        if (Number(budget) || Number(budget)) {
             this.budget = budget;
             this.income = income;
         } else {
-            throw 'Budget or Income is not a number!';
+            throw new Error('Budget or Income is not a number!');
         }
     }
 
+    set year(value) {
+        if (Number(value) && !isNaN(value)) {
+            this._year = value;
+        } else {
+            throw new Error('Year is not a number!');
+        }
+    }
+
+    
+
     getIntroduction() {
-        return `${this.name} was released in ${this.year} and directed by ${this.director}`;
+        return `${this.name} was released in ${this._year} and directed by ${this.director}`;
     }
 
     getProfit() {
-        return `Profit: ${this.income - this.budget}`;
+        return this.income - this.budget;
     }
 }
