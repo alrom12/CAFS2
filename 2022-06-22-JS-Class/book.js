@@ -13,6 +13,8 @@ class Book {
         return `${this.title} by ${this.author}`;
     }
 
+    
+
     getBookAge() {
         return `${new Date().getFullYear() - this.year}`;
     }
