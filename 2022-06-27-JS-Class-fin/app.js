@@ -1,11 +1,11 @@
-category = {
+let category = {
     1: "T-shirts", 
     2: "Pants",
     3: "Sweaters", 
     4: "Shoes"
 };
 
-currentProducts = [
+let currentProducts = [
     new Product("Shirt Red slim fit", 10, 0, 1),
     new Product("Pants brown long", 20, 15, 2),
     new Product("Sweater casual grey green", 30, 25, 3),
