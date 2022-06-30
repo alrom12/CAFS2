@@ -7,6 +7,20 @@ function validateEmail (emailAdress) {
     }
 }
 
+function placeSuccessMessage (element) {
+    element.classList.remove('text-danger');
+    element.classList.remove('d-none');
+    element.classList.add('text-success');
+    element.children[0].innerText = 'Looks good!';
+}
+
+function placeDangerMessage (element) {
+    element.classList.remove('text-success');
+    element.classList.remove('d-none');
+    element.classList.add('text-danger');
+    element.children[0].innerText = 'Please fix this!';
+}
+
 window.addEventListener('load', (event) => {
     let buttonHello = document.getElementById('button-hello');
     buttonHello?.addEventListener('click', (event) => {
@@ -39,29 +53,13 @@ window.addEventListener('load', (event) => {
 
     buttonEmail?.addEventListener('click', (event) => {
         let emailAdress = document.getElementById('email-input').value;
-        if (validateEmail(emailAdress)) {
-            emailValidateElement.classList.remove('text-danger');
-            emailValidateElement.classList.remove('d-none');
-            emailValidateElement.classList.add('text-success');
-            emailValidateElement.children[0].innerText = 'Looks good!';
-        } else {
-            emailValidateElement.classList.remove('text-success');
-            emailValidateElement.classList.remove('d-none');
-            emailValidateElement.classList.add('text-danger');
-            emailValidateElement.children[0].innerText = 'Please check email';
-        }
+        validateEmail(emailAdress) ? placeSuccessMessage(emailValidateElement) : placeDangerMessage(emailValidateElement);
 
         let phoneNumber = document.getElementById('phone-input').value;
         if (Number.isInteger(+phoneNumber) && phoneNumber.length >= 8 && phoneNumber.length <= 11) {
-            phoneValidateElement.classList.remove('text-danger');
-            phoneValidateElement.classList.remove('d-none');
-            phoneValidateElement.classList.add('text-success');
-            phoneValidateElement.children[0].innerText = 'Looks good!';
+            placeSuccessMessage(element);
         } else {
-            phoneValidateElement.classList.remove('text-success');
-            phoneValidateElement.classList.remove('d-none');
-            phoneValidateElement.classList.add('text-danger');
-            phoneValidateElement.children[0].innerText = 'Please check phone number';
+            placeDangerMessage(element);
         }
     }); 
     
@@ -107,9 +105,8 @@ window.addEventListener('load', (event) => {
     let dropdownMenuBorders = document.getElementById('dropdown-menu-borders');
     for (let i = 0; i < dropdownMenuBorders.children.length; i++) {
         dropdownMenuBorders.children[i]?.addEventListener('click', (event) => {
-            textAdjustable.style.border = `1px solid ${event.target.id.split('-')[1]}`;
-            console.log(`1px solid ${event.target.id.split('-')[1]}`);
             event.preventDefault();
+            textAdjustable.style.border = `1px solid ${event.target.id.split('-')[1]}`;
         });
     }
 
