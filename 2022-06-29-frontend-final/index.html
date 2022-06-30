@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <title>FrontEnd Final Work</title>
+</head>
+<body>
+    <div class="container">
+
+    <!-- FIRST -->
+        <div class="card mb-3">
+            <div class="card-header">
+            Press the button to call an alert message <span class="text-danger">alert('Hello World!')</span>
+            </div>
+            <div class="card-body text-center">
+                <button class="btn btn-primary" id="button-hello">Click on me</button>
+            </div>
+        </div>
+
+    <!-- SECOND -->
+        <div class="card mb-3">
+            <div class="card-header">
+            The text will change depends on the choice of the user (Upper / Lower case)
+            </div>
+            <div class="card-body">
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Fill me in" id="up-low-text">
+                    <button class="btn btn-outline-secondary" type="button" id="text-all-up">To Upper Case</button>
+                    <button class="btn btn-outline-secondary" type="button" id="text-all-low">To Lower Case</button>
+                    <button class="btn btn-outline-secondary" type="button" id="text-first-up">First Upper Case</button>
+                    <button class="btn btn-outline-secondary" type="button" id="text-first-low">First Lower Case</button>
+                </div>
+            </div>
+        </div>
+
+    <!-- THIRD -->
+        <div class="card mb-3">
+            <div class="card-header">
+            Check for errors in the input field and shoet the error message, if needed
+            <ul>
+                <li>element show/hide</li>
+                <li>class add/remove</li>
+            </ul>
+            </div>
+            <div class="card-body">
+                <form>
+                    <div class="row mb-3">
+                        <div class="col-2">
+                            Email
+                        </div>
+                        <div class="col-10">
+                            <input type="text" class="form-control" placeholder="Enter Email" id="email-input">
+                        </div>
+                        <div class="col-10 offset-2 d-none" id="email-validate">
+                            <small>Looks good!</small>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-2">
+                            Phone Number
+                        </div>
+                        <div class="col-10">
+                            <input type="text" class="form-control" placeholder="Enter Phone Number +37012345678" id="phone-input">
+                        </div>
+                        <div class="col-10 offset-2 text-success d-none" id="phone-validate">
+                            <small>Looks good!</small>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-10 offset-2">
+                            <button class="btn btn-outline-secondary" type="button" id="button-save">Save</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+    <!-- FOURTH -->
+        <div class="card mb-3">
+            <div class="card-header">
+                Press the buttons to block / unblock the <span class="text-danger">input</span> field
+            </div>
+            <div class="card-body">
+                <div class="container">
+                    <div class="input-group mb-3">
+                        <button class="btn btn-outline-danger" type="button" id="button-block">Block</button>
+                        <input type="text" class="form-control" placeholder="I'm input! You can try to enter something..." id="input-text">
+                        <button class="btn btn-outline-success" type="button" id="button-unblock">Unblock</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    <!-- FIFTH -->
+        <div class="card mb-3">
+            <div class="card-header">
+                <p>Hover the mouse over the image to change it</p>
+                <ul>
+                    <li>https://i.imgur.com/PLDVxza.jpg</li>
+                    <li>https://i.imgur.com/0DElr0H.jpg</li>
+                </ul>
+            </div>
+            <div class="card-body text-center">
+                <div class="container col-4" id="mouse-over">
+                    <img src="https://i.imgur.com/PLDVxza.jpg" alt="img1" id="img1" hidden>
+                    <img src="https://i.imgur.com/0DElr0H.jpg" alt="img2" id="img2">
+                </div>
+            </div>
+        </div>
+
+    <!-- SIXTH -->
+        <div class="card mb-3">
+            <div class="card-header">
+                Set buttons with dropdown menus. The text should be changed according to the selection
+            </div>
+            <div class="card-body">
+                <div class="container mb-3" id="text-adjustable">
+                    <p class="text-center font-size fs-5">A well-known quote, contained in a blockquote element.</p>
+                    <footer class="blockquote-footer text-end">Someone famous in <cite>Source Title</cite></footer>
+                </div>
+                <div class="container">
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-danger dropdown-toggle" id="dropdown-cursors" data-bs-toggle="dropdown" aria-expanded="false">
+                            Cursors
+                        </button>
+                        <div class="dropdown-menu" id="dropdown-menu-cursors" aria-labelledby="dropdown-menu-cursors">
+                            <a class="dropdown-item" href="#" id="pointer">pointer</a>
+                            <a class="dropdown-item" href="#" id="wait">wait</a>
+                            <a class="dropdown-item" href="#" id="crosshair">crosshair</a>
+                            <a class="dropdown-item" href="#" id="not-allowed">not-allowed</a>
+                            <a class="dropdown-item" href="#" id="zoom-in">zoom-in</a>
+                            <a class="dropdown-item" href="#" id="grab">grab</a>
+                        </div>
+                    </div>
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-danger dropdown-toggle" id="dropdown-colours" data-bs-toggle="dropdown" aria-expanded="false">
+                            Colours
+                        </button>
+                        <div class="dropdown-menu" id="dropdown-menu-colours" aria-labelledby="dropdown-menu-colours">
+                            <a class="dropdown-item" href="#" id="red">Red</a>
+                            <a class="dropdown-item" href="#" id="green">Green</a>
+                            <a class="dropdown-item" href="#" id="blue">Blue</a>
+                        </div>
+                    </div>
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-danger dropdown-toggle" id="dropdown-borders" data-bs-toggle="dropdown" aria-expanded="false">
+                            Borders
+                        </button>
+                        <div class="dropdown-menu" id="dropdown-menu-borders" aria-labelledby="dropdown-menu-borders">
+                            <a class="dropdown-item" href="#" id="border-red">Red</a>
+                            <a class="dropdown-item" href="#" id="border-green">Green</a>
+                            <a class="dropdown-item" href="#" id="border-blue">Blue</a>
+                        </div>
+                    </div>
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-success" id="reset-all">Reset All</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    <!-- SEVENTH -->
+        <div class="card mb-3">
+            <div class="card-header">
+                <p>Press the button to show modal wondow with information about you</p>
+            </div>
+            <div class="card-body text-center">
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    Launch modal
+                </button>
+                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title" id="exampleModalLabel">About me</h5>
+                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                          My name is Aleksandr. I'm a student of the course "Full Stack 2".
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+    <script src="app.js"></script>
+</body>
+</html>
