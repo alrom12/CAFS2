@@ -1,0 +1,15 @@
+@import url(https://cdnjs.cloudflare.com/ajax/libs/MaterialDesign-Webfont/5.3.45/css/materialdesignicons.min.css);
+
+@import "tailwindcss/base";
+
+@import "tailwindcss/components";
+
+@import "tailwindcss/utilities";
+
+/* .custom-teal-button {
+  background-color: #00796b;
+}
+
+.custom-teal-button-hover {
+  background-color: #00695c;
+} */
