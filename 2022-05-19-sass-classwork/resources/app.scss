@@ -1,0 +1,18 @@
+@import "variables";
+
+ol {
+    li {
+        .badge {
+            background-color: $blue;
+        }
+        div {
+            .fw-bold {
+                font-weight: bold;
+            }
+            .text-danger {
+                color: $red;
+            }
+        }
+
+    }
+}
