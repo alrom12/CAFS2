@@ -1,52 +1,42 @@
+const url = 'https://jsonplaceholder.typicode.com/posts';
+const init = {
+    method: 'GET',
+    mode: 'cors',
+};
 let divMain = document.querySelector('[data-type="main"]');
-let div = document.createElement('div');
 
-
-
-function printData(data) {
-    // console.log('DATA', data);
+function createCards(data) {
     data.forEach(element => {
-
-
-
         let card = divMain.appendChild(document.createElement('div'));
-        card.classList.add('card');
-        card.classList.add('mt-3');
-        // console.log('cardMain', card);
+        card.classList.add('card', 'mt-3', 'flex-fill');
 
         let cardTitle = card.appendChild(document.createElement('div'));
-        // console.log(cardTitle);
-        cardTitle.classList.add('card-header');
+        cardTitle.classList.add('card-header', 'fw-bold', 'text-capitalize', 'text-start', 'text-wrap');
         cardTitle.innerText = element.title;
 
         let cardText = card.appendChild(document.createElement('div'));
-        cardText.classList.add('card-body');
+        cardText.classList.add('card-body', 'text-center');
         cardText.innerText = element.body;
 
         let cardFooter = card.appendChild(document.createElement('div'));
-        cardFooter.classList.add('card-footer');
+        cardFooter.classList.add('card-footer', 'fst-italic', 'text-end');
         cardFooter.innerText = `user id: ${element.userId} | record id: ${element.id}`;
-
-
-
-        //LEGACY CODE
-        // cardMain = querySelectorAll('card');
-        // console.log(cardMain);
-
-
-        // let cardTitle = cardMain.append(div);
-        // cardTitle.classList.add('card-title');
-        // let cardBody = cardMain.append(div);
-        // cardBody.classList.add('card-body');
-        // let cardFooter = cardBody.append(div);
-        // cardFooter.classList.add('card-footer');
-        // cardTitle.innerText = element.title;
-        // cardBody.innerText = element.body;
-        // cardFooter.innerText = `Blog id: ${element.id}, created by user ${element.id}`;
     });
 }
 
-fetch('https://jsonplaceholder.typicode.com/posts')
-    .then(response => response.json())
-    .then(data => printData(data));
-
+// try {
+    let result = fetch(url, init)
+        .then((response) => {
+            if (response.ok) {
+                response.json().then(response => createCards(response));
+            } else {
+                console.log(response);
+                throw new Error({'ok': response.ok, 'status': response.status, 'url': response.url});   
+            }
+        })
+        .catch((error) => {
+            console.warn(error);
+        });
+// } catch (err) {
+//     console.log(`ERROR: ${err}`);
+// }
