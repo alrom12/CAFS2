@@ -21,16 +21,12 @@ http.createServer((request, response) => {
     } else if (filePath === '/app.js') {
         filePath = `${PUBLIC}${filePath}`;
     } else if (filePath === '/api/v1/message') {
-        console.log('kuku text data');
         filePath = './sample.txt';
     } else if (filePath.includes('/api/v1/user')) {
-        console.log('kuku user data');
         filePath = './user.json';
     } else if (filePath.includes('/api/v1/users')) {
-        console.log('kuku users data');
         filePath = './users.json';
     } else if (filePath.includes('/api/v1/posts')) {
-        console.log('kuku posts data');
         filePath = './posts.json';
     } else {
         console.log('kuku 404');
