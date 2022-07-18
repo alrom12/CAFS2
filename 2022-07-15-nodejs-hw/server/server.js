@@ -55,9 +55,8 @@ http.createServer((request, response) => {
         } else {
             response.setHeader('Access-Control-Allow-Origin', '*');
             response.setHeader('Access-Control-Allow-Methods', 'GET, POST');
-            response.setHeader('Access-Control-Max-Age', 2592000); // 30 days
-            response.setHeader('Content-Type', contentType);
-            response.writeHead(200);
+            console.log ('kuku response headers: ', response.getHeaders());
+            response.writeHead(200, {'Content-Type': contentType});
             response.end(content);
         }
     });

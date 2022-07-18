@@ -26,20 +26,25 @@ const postsOutput = document.querySelector('#posts');
 function loadTextFileXHR() {
     console.log('kuku loadTextFileXHR');
     let xhr = new XMLHttpRequest();
-    xhr.open('GET', `${window.location.host}${messageApi}`, false);
-    xhr.setRequestHeader('Access-Control-Allow-Origin', '*');
-    console.log('all response headers: ', xhr.getAllResponseHeaders());
+    xhr.open('GET', `http://${window.location.host}${messageApi}`, false);
     try {
         xhr.send();
-        
         if (xhr.status === 200) {
             textOutput.textContent = xhr.responseText;
         } else {
-            throw new Error(xhr.status, 'loadTextFileXHR Error');
+            throw new Error('loadTextFileXHR Error', xhr.status);
         }
     } catch (error) {
         console.log(error);
     }
+}
+
+function loadTextFileFetch() {
+    console.log('kuku loadTextFileFetch');
+    fetch(`http://${window.location.host}${messageApi}`)
+        .then(response => response.text())
+        .then(text => textOutput.textContent = text)
+        .catch(error => console.log(error));
 }
 
 //-- Load User Information
