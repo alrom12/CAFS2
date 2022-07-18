@@ -11,15 +11,16 @@ const mimeTypes = {
     '.txt': 'text/plain',
     '.xml': 'text/xml'
 };
-const PUBLIC = '../public/';
+const PUBLIC = './public';
 
 http.createServer((request, response) => {
     console.log('request: ', request.url);
-
-    let filePath = `.${request.url}`;
-    if (filePath === './') {
-        filePath = `${PUBLIC}index.html`;
-    } else if (filePath.includes('/api/v1/message')) {
+    let filePath = request.url;
+    if (filePath === '/') {
+        filePath = `${PUBLIC}/index.html`;
+    } else if (filePath === '/app.js') {
+        filePath = `${PUBLIC}${filePath}`;
+    } else if (filePath === '/api/v1/message') {
         console.log('kuku text data');
         filePath = './sample.txt';
     } else if (filePath.includes('/api/v1/user/')) {
@@ -35,7 +36,7 @@ http.createServer((request, response) => {
         filePath = './posts.json';
     } else {
         console.log('kuku 404');
-        filePath = `${PUBLIC}404.html`;
+        filePath = `${PUBLIC}/404.html`;
     }
 
     let contentType = mimeTypes[path.extname(filePath)];
@@ -52,7 +53,11 @@ http.createServer((request, response) => {
                 response.end(error.code);
             }
         } else {
-            response.writeHead(200, { 'Content-Type': contentType });
+            response.setHeader('Access-Control-Allow-Origin', '*');
+            response.setHeader('Access-Control-Allow-Methods', 'GET, POST');
+            response.setHeader('Access-Control-Max-Age', 2592000); // 30 days
+            response.setHeader('Content-Type', contentType);
+            response.writeHead(200);
             response.end(content);
         }
     });

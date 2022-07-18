@@ -1,6 +1,10 @@
+// some comments
+const messageApi = '/api/v1/message';
+
 // EXTERNAL API
-const JSONPLACEHOLDER_URI = 'https://jsonplaceholder.typicode.com/posts';
-const API = 'http://localhost:3000/api/v1/';
+// const JSONPLACEHOLDER_URI = 'https://jsonplaceholder.typicode.com/posts';
+// INTERNAL API
+// const API = 'http://localhost:3000/api/v1/';
 
 // *** Variables ***
 //-- buttons
@@ -9,7 +13,7 @@ const btnGetUser = document.getElementById('btn2');
 const btnGetUsers = document.getElementById('btn3');
 const btnGetPosts = document.getElementById('btn4');
 const btnSendPost = document.getElementById('btn5');
-//-- output
+// //-- output
 const textOutput = document.querySelector('#text');
 const userOutput = document.querySelector('#user');
 const usersOutput = document.querySelector('#users');
@@ -18,8 +22,24 @@ const postsOutput = document.querySelector('#posts');
 // *** Functions ***
 //OLD Version AJAX (XMLHttpRequest())
 //-- Load Text File Information
+
 function loadTextFileXHR() {
-  return;
+    console.log('kuku loadTextFileXHR');
+    let xhr = new XMLHttpRequest();
+    xhr.open('GET', `${window.location.host}${messageApi}`, false);
+    xhr.setRequestHeader('Access-Control-Allow-Origin', '*');
+    console.log('all response headers: ', xhr.getAllResponseHeaders());
+    try {
+        xhr.send();
+        
+        if (xhr.status === 200) {
+            textOutput.textContent = xhr.responseText;
+        } else {
+            throw new Error(xhr.status, 'loadTextFileXHR Error');
+        }
+    } catch (error) {
+        console.log(error);
+    }
 }
 
 //-- Load User Information
