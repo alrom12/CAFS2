@@ -1,5 +1,6 @@
 // some comments
 const messageApi = '/api/v1/message';
+const usersApi = '/api/v1/users';
 
 // EXTERNAL API
 // const JSONPLACEHOLDER_URI = 'https://jsonplaceholder.typicode.com/posts';
@@ -23,6 +24,10 @@ const postsOutput = document.querySelector('#posts');
 //OLD Version AJAX (XMLHttpRequest())
 //-- Load Text File Information
 
+function insertText(text) {
+    textOutput.textContent = text;
+}
+
 function loadTextFileXHR() {
     console.log('kuku loadTextFileXHR');
     let xhr = new XMLHttpRequest();
@@ -30,7 +35,7 @@ function loadTextFileXHR() {
     try {
         xhr.send();
         if (xhr.status === 200) {
-            textOutput.textContent = xhr.responseText;
+            insertText(xhr.responseText);
         } else {
             throw new Error('loadTextFileXHR Error', xhr.status);
         }
@@ -54,7 +59,20 @@ function loadUserXHR() {
 
 //-- Load Users information
 function loadUsersXHR() {
-  return;
+    console.log('kuku loadUsersXHR');
+    let xhr = new XMLHttpRequest();
+    xhr.open('GET', `http://${window.location.host}${usersApi}`, false);
+    try {
+        xhr.send();
+        if (xhr.status === 200) {
+            console.log(xhr.responseText);
+        } else {
+            throw new Error('loadUsersXHR Error', xhr.status);
+        }
+    }
+    catch (error) {
+        console.log(error);
+    }
 }
 
 //-- Load Users information
