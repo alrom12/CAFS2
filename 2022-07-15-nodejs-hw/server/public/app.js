@@ -1,3 +1,5 @@
+
+
 // some comments
 const messageApi = '/api/v1/message';
 const usersApi = '/api/v1/users';
@@ -28,7 +30,33 @@ function insertText(text) {
     textOutput.textContent = text;
 }
 
+function insertTablewithUsers(users) {
+    let table = userOutput.appendChild(document.createElement('table'));
+    table.className = 'table table-success table-bordered table-striped';
+    let tableBody = table.appendChild(document.createElement('tbody'));
+    let usersArray = JSON.parse(users);
+    for (let i = 0; i < usersArray.length; i++) {
+        let tr = tableBody.appendChild(document.createElement('tr'));
+        for (let key in usersArray[i]) {
+            console.log(key);
+            if (key === 'id') {
+                let td = tr.appendChild(document.createElement('td'));
+                let ahref = td.appendChild(document.createElement('a'));
+                ahref.textContent = usersArray[i][key];
+                ahref.href = `http://${window.location.host}${usersApi}/${usersArray[i][key]}`;
+            } else {
+                let td = tr.appendChild(document.createElement('td'));
+                td.textContent = usersArray[i][key];
+            }
+        }
+    }
+}  
+
+
+
+//-- Load User Information
 function loadTextFileXHR() {
+    btnGetTextFile.disabled = true;
     console.log('kuku loadTextFileXHR');
     let xhr = new XMLHttpRequest();
     xhr.open('GET', `http://${window.location.host}${messageApi}`, false);
@@ -45,6 +73,7 @@ function loadTextFileXHR() {
 }
 
 function loadTextFileFetch() {
+    btnGetTextFile.disabled = true;
     console.log('kuku loadTextFileFetch');
     fetch(`http://${window.location.host}${messageApi}`)
         .then(response => response.text())
@@ -52,20 +81,34 @@ function loadTextFileFetch() {
         .catch(error => console.log(error));
 }
 
-//-- Load User Information
 function loadUserXHR() {
-  return;
-}
-
-//-- Load Users information
-function loadUsersXHR() {
     console.log('kuku loadUsersXHR');
+    btnGetUsers.disabled = true;
     let xhr = new XMLHttpRequest();
     xhr.open('GET', `http://${window.location.host}${usersApi}`, false);
     try {
         xhr.send();
         if (xhr.status === 200) {
             console.log(xhr.responseText);
+        } else {
+            throw new Error('loadUsersXHR Error', xhr.status);
+        }
+    }
+    catch (error) {
+        console.log(error);
+    }
+}
+
+//-- Load Users information
+function loadUsersXHR() {
+    console.log('kuku loadUsersXHR');
+    btnGetUsers.disabled = true;
+    let xhr = new XMLHttpRequest();
+    xhr.open('GET', `http://${window.location.host}${usersApi}`, false);
+    try {
+        xhr.send();
+        if (xhr.status === 200) {
+            insertTablewithUsers(xhr.responseText);
         } else {
             throw new Error('loadUsersXHR Error', xhr.status);
         }
