@@ -29,7 +29,6 @@ http.createServer((request, response) => {
     } else if (filePath.includes('/api/v1/posts')) {
         filePath = './posts.json';
     } else {
-        console.log('kuku 404');
         filePath = `${PUBLIC}/404.html`;
     }
 
