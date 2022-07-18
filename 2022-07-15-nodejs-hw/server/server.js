@@ -51,8 +51,6 @@ http.createServer((request, response) => {
                 response.end(error.code);
             }
         } else {
-            response.setHeader('Access-Control-Allow-Origin', '*');
-            response.setHeader('Access-Control-Allow-Methods', 'GET, POST');
             response.writeHead(200, {'Content-Type': contentType});
             response.end(content);
         }
