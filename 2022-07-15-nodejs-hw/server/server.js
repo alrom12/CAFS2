@@ -23,11 +23,9 @@ http.createServer((request, response) => {
     } else if (filePath === '/api/v1/message') {
         console.log('kuku text data');
         filePath = './sample.txt';
-    } else if (filePath.includes('/api/v1/user/')) {
+    } else if (filePath.includes('/api/v1/user')) {
         console.log('kuku user data');
-        let arr = filePath.split('/');
-        console.log(arr);
-        filePath = './users.json';
+        filePath = './user.json';
     } else if (filePath.includes('/api/v1/users')) {
         console.log('kuku users data');
         filePath = './users.json';
@@ -44,7 +42,7 @@ http.createServer((request, response) => {
     fs.readFile(filePath, (error, content) => {
         if (error) {
             if(error.code === 'ENOENT') {
-                fs.readFile('./404.html', (error, content) => {
+                fs.readFile('${PUBLIC}/404.html', (error, content) => {
                     response.writeHead(404, { 'Content-Type': 'text/html' });
                     response.end(content);
                 });

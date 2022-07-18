@@ -3,6 +3,7 @@
 // some comments
 const messageApi = '/api/v1/message';
 const usersApi = '/api/v1/users';
+const userApi = '/api/v1/user';
 
 // EXTERNAL API
 // const JSONPLACEHOLDER_URI = 'https://jsonplaceholder.typicode.com/posts';
@@ -83,9 +84,9 @@ function loadTextFileFetch() {
 
 function loadUserXHR() {
     console.log('kuku loadUsersXHR');
-    btnGetUsers.disabled = true;
+    btnGetUser.disabled = true;
     let xhr = new XMLHttpRequest();
-    xhr.open('GET', `http://${window.location.host}${usersApi}`, false);
+    xhr.open('GET', `http://${window.location.host}${userApi}`, false);
     try {
         xhr.send();
         if (xhr.status === 200) {
@@ -137,9 +138,9 @@ function sendPostFETCH() {
 btnGetTextFile.addEventListener('click', loadTextFileXHR);
 btnGetUser.addEventListener('click', loadUserXHR);
 btnGetUsers.addEventListener('click', loadUsersXHR);
-btnGetPosts.addEventListener('click', loadPostsXHR);
-btnGetPosts.addEventListener('click', loadPostsFETCH);
-btnSendPost.addEventListener('click', sendPostFETCH);
+// btnGetPosts.addEventListener('click', loadPostsXHR);
+// btnGetPosts.addEventListener('click', loadPostsFETCH);
+// btnSendPost.addEventListener('click', sendPostFETCH);
 
 /*
     readyState Values:
