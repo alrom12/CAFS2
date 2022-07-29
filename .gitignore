@@ -6,4 +6,5 @@ sass
 *.zip
 *.vscode
 lukas
+.env
 
